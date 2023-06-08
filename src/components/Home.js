@@ -1,3 +1,5 @@
+import { crearUsuarioConCorreoYContraseña } from '../lib';
+
 export const Home = (onNavigate) => {
   const HomeDiv = document.createElement('div');
   const buttonLogin = document.createElement('button');
@@ -6,12 +8,21 @@ export const Home = (onNavigate) => {
 
   buttonLogin.addEventListener('click', (e) => {
     e.preventDefault();
-    onNavigate('/login')
+    const inputEmail = HomeDiv.querySelector('#input__email');
+    const inputPassword = HomeDiv.querySelector('#input__password');
+
+    crearUsuarioConCorreoYContraseña(inputEmail.value, inputPassword.value)
+      .then((userCredentials) => {
+        console.log(userCredentials);
+        onNavigate('/login');
+      })
+      .catch((err) => console.log(err));
+    //onNavigate('/login');
   });
 
   HomeDiv.innerHTML += `
-    <input placeholder="Correo electrónico" type="email">
-    <input placeholder="Contraseña" type="password">
+    <input id="input__email" placeholder="Correo electrónico" type="email">
+    <input id="input__password" placeholder="Contraseña" type="password">
     <img src="./../btn-google.png" class="button-google" alt="button">
   `;
 
