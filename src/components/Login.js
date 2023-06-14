@@ -4,12 +4,12 @@ export const Login = (onNavigate) => {
   const HomeDiv = document.createElement('div');
   HomeDiv.textContent = 'Bienvenida SocialTaco';
   HomeDiv.className = 'home-div';
-  const buttonHome = document.createElement('button');
+  const buttonHome = document.createElement('a');
 
   buttonHome.classList = 'home-div__button';
   buttonHome.textContent = 'Regresar al Login';
-
-  buttonHome.addEventListener('click', () => onNavigate('/'));
+  buttonHome.href="/"
+  //buttonHome.addEventListener('click', () => onNavigate('/'));
 
   HomeDiv.innerHTML += `
   <div class="new-post__container">

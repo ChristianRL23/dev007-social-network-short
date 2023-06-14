@@ -1,6 +1,7 @@
 import { Home } from './components/Home.js';
 import { Login } from './components/Login.js';
 
+/*
 const rootDiv = document.getElementById('root');
 
 const routes = {
@@ -32,3 +33,17 @@ window.onpopstate = () => {
 };
 
 rootDiv.appendChild(component(onNavigate));
+*/
+
+import Router from "router-dom";
+
+new Router([
+  {
+    path: "/",
+    element: Home()
+  },
+  {
+    path: "/login",
+    element: Login()
+  }
+])
