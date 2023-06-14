@@ -2,11 +2,12 @@ import { crearUsuarioConCorreoYContraseña } from '../lib';
 
 export const Home = (onNavigate) => {
   const HomeDiv = document.createElement('div');
-  const buttonLogin = document.createElement('button');
+  const buttonLogin = document.createElement('a');
   buttonLogin.textContent = 'Inicia sesión';
+  buttonLogin.href = '/login'
   //buttonLogin.setAttribute('type', 'submit');
 
-  buttonLogin.addEventListener('click', (e) => {
+  /*buttonLogin.addEventListener('click', (e) => {
     e.preventDefault();
     const inputEmail = HomeDiv.querySelector('#input__email');
     const inputPassword = HomeDiv.querySelector('#input__password');
@@ -19,6 +20,7 @@ export const Home = (onNavigate) => {
       .catch((err) => console.log(err));
     //onNavigate('/login');
   });
+  */
 
   HomeDiv.innerHTML += `
     <input id="input__email" placeholder="Correo electrónico" type="email">
